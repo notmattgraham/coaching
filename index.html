@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1:1 Personal Brand Coaching | Matt Graham</title>
+  <meta name="description" content="3 months of weekly 1:1 calls with Matt Graham to build your personal brand: positioning, content, growth, and how to make money from it." />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="1:1 Personal Brand Coaching with Matt Graham">
+  <meta property="og:description" content="3 months of weekly 1:1 calls to build your personal brand.">
+  <meta property="og:url" content="https://notmattgraham.com/coaching/">
+  <meta property="og:image" content="https://notmattgraham.com/me.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #fafaf6;
+      --bg-card:   #f4f2ec;
+      --ink:       #0d0c0a;
+      --ink-soft:  #2d2a24;
+      --ink-muted: #7a7568;
+      --ink-faint: #b3aea1;
+      --hairline:  #e2dccf;
+      --accent:    #b5482f;
+
+      --display:   'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      --body:      'Inter Tight', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      --signature: 'Caveat', cursive;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink-soft);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+      font-weight: 400;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      opacity: 0.045;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: multiply;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HERO ── */
+    .hero { padding: 20px 0 32px; text-align: center; }
+    .hero-after-vsl { padding: 32px 0 12px; }
+    .lead-big {
+      font-size: clamp(20px, 2.2vw, 24px);
+      line-height: 1.5;
+      color: var(--ink);
+      max-width: 680px;
+      margin: 20px auto 0;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin: 0 auto 20px;
+      max-width: 680px;
+    }
+
+    .lead {
+      font-family: var(--body);
+      font-size: clamp(17px, 1.6vw, 19px);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .lead strong { color: var(--ink); font-weight: 600; }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      padding: 15px 26px;
+      border-radius: 999px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .hero-cta:hover { transform: translateY(-1px); opacity: 0.88; }
+    .hero-cta .arrow { transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+    .hero-cta:hover .arrow { transform: translateX(3px); }
+
+    .hero-cta.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      border-top: 1px solid var(--hairline);
+      padding: 48px 0;
+    }
+
+    .section-label {
+      font-family: var(--display);
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ── VSL ── */
+    .vsl-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+    }
+    .vsl-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: var(--ink);
+    }
+
+    /* ── VIRAL PROOF ── */
+    .viral-proof { margin-top: 40px; }
+    .viral-proof-title {
+      font-family: var(--display);
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink-soft);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 22px;
+      line-height: 1.4;
+    }
+    .viral-proof-title strong {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+    .viral-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+      mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+    }
+    .viral-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      gap: 18px;
+    }
+    .viral-track.play {
+      animation: viral-scroll 40s linear infinite;
+    }
+    .viral-marquee:hover .viral-track { animation-play-state: paused; }
+    .viral-card {
+      flex: none;
+      height: 260px;
+      width: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(13,12,10,0.16);
+    }
+    @keyframes viral-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (max-width: 640px) {
+      .viral-card { height: 190px; }
+      .viral-marquee { -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+    }
+
+    /* ── BEFORE CLIP ── */
+    .before-clip { margin-top: 48px; margin-bottom: 48px; text-align: center; }
+    .before-clip-title {
+      font-family: var(--display);
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0 auto 18px;
+      max-width: 620px;
+    }
+    .before-clip .vsl-frame { max-width: 480px; margin: 0 auto; }
+    .before-clip-caption {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(20px, 2.4vw, 26px);
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-top: 20px;
+      line-height: 1.3;
+    }
+
+    /* ── RULES / CONTENTS LIST ── */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .rule {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--hairline);
+      max-width: 840px;
+      width: 100%;
+    }
+    .rule:last-child { border-bottom: none; }
+    .rule-num {
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-faint);
+    }
+    .rule-name {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+    .rule-desc {
+      font-family: var(--body);
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    /* ── CALLOUT (no-fluff bit) ── */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .callout-tag {
+      font-family: var(--signature);
+      font-size: 30px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 14px;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+    .callout p {
+      font-family: var(--body);
+      font-size: clamp(17px, 1.8vw, 20px);
+      line-height: 1.55;
+      color: var(--ink);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .callout p strong { font-weight: 600; }
+    .callout .strike {
+      color: var(--ink-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 2px;
+    }
+
+    /* ── GUARANTEE ── */
+    .guarantee {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+    .guarantee-mark {
+      font-family: var(--signature);
+      font-size: 54px;
+      color: var(--ink);
+      line-height: 0.9;
+    }
+    .guarantee p {
+      font-family: var(--body);
+      font-size: 16px;
+      color: var(--ink-soft);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .guarantee p strong { color: var(--ink); font-weight: 600; }
+    .guarantee-headline {
+      font-family: var(--display);
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── BUY ── */
+    .buy-section { border-bottom: 1px solid var(--hairline); text-align: center; }
+
+    .buy-section h2 {
+      font-family: var(--display);
+      font-size: clamp(28px, 4.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1.08;
+      margin: 0 auto 14px;
+      max-width: 600px;
+    }
+
+    .buy-section .lead { margin-bottom: 32px; }
+
+    .buy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .price {
+      font-family: var(--display);
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .price-note {
+      font-family: var(--body);
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+
+    .includes {
+      list-style: none;
+      margin-bottom: 28px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .includes li {
+      font-family: var(--body);
+      font-size: 15px;
+      color: var(--ink-soft);
+      padding: 8px 0;
+      display: flex;
+      gap: 10px;
+    }
+    .includes li::before {
+      content: '—';
+      color: var(--ink-faint);
+      flex-shrink: 0;
+    }
+
+    .buy-card .hero-cta {
+      margin-top: 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .buy-footnote {
+      font-family: var(--body);
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: auto;
+      padding: 40px 0 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .footer-meta {
+      font-family: var(--display);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    ::selection { background: var(--ink); color: var(--bg); }
+
+    @media (max-width: 640px) {
+      .container { padding: 24px; }
+      .hero { padding: 12px 0 24px; }
+      section { padding: 40px 0; }
+      .buy-card, .callout { padding: 24px; }
+    }
+  
+    /* ── PLAYBOOK ADDITIONS ── */
+    img { max-width: 100%; height: auto; }
+    .stats-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px 48px; margin-top: 40px; text-align: center; }
+    .stats-row .num { font-family: var(--display); font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+    .stats-row .lbl { font-family: var(--body); font-size: 14px; color: var(--ink-muted); margin-top: 6px; }
+    .results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 640px; margin: 0 auto; text-align: center; }
+    .result { background: var(--bg-card); border: 1px solid var(--hairline); border-radius: 12px; padding: 24px 18px; }
+    .result .num { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+    .result .who { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); margin-top: 10px; }
+    .result p { font-size: 14px; color: var(--ink-soft); margin-top: 2px; line-height: 1.5; }
+    @media (max-width: 640px) {
+      .stats-row { gap: 18px 28px; }
+      .stats-row .num { font-size: 28px; }
+      .result { padding: 18px 12px; }
+      .result .num { font-size: 24px; }
+    }
+  
+    /* ── COACHING ADDITIONS ── */
+    .hero-photo { display: block; width: 100%; max-width: 340px; aspect-ratio: 904 / 1266; object-fit: cover; margin: 0 auto; border-radius: 12px; border: 1px solid var(--hairline); }
+    .commit-price { font-family: var(--display); font-size: clamp(34px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+    .apply-form { display: grid; gap: 14px; text-align: left; }
+    .apply-form label { font-family: var(--display); font-size: 14px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
+    .apply-form input, .apply-form select, .apply-form textarea {
+      width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+      background: var(--bg); border: 1px solid var(--hairline); border-radius: 8px; padding: 12px 14px;
+    }
+    .apply-form textarea { min-height: 110px; resize: vertical; }
+    .apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus { outline: 2px solid var(--ink); outline-offset: -1px; border-color: var(--ink); }
+    .apply-form [aria-invalid="true"] { border-color: var(--accent); }
+    .apply-form .radio-row { display: grid; gap: 8px; }
+    .apply-form .radio-row label { font-family: var(--body); font-weight: 400; font-size: 15px; color: var(--ink-soft); display: flex; gap: 10px; align-items: flex-start; margin: 0; cursor: pointer; }
+    .apply-form .radio-row input { width: auto; margin-top: 4px; }
+    .apply-form .hero-cta { width: 100%; justify-content: center; margin-top: 6px; }
+    .apply-form .hero-cta[disabled] { opacity: .6; cursor: default; }
+    .form-err { color: var(--accent); font-size: 14px; }
+    .form-err:empty { display: none; }
+    .hp { position: absolute; left: -9999px; }
+    .buy-card.wide { max-width: 520px; }
+    .apply-done { text-align: center; padding: 12px 0; }
+    .apply-done .guarantee-headline { margin-bottom: 8px; }
+    [hidden] { display: none !important; }
+  </style>
+  <!-- Mouseflow: session recordings + heatmaps -->
+  <script type="text/javascript">
+    window._mfq = window._mfq || [];
+    (function() {
+      var mf = document.createElement("script");
+      mf.type = "text/javascript"; mf.defer = true;
+      mf.src = "https://cdn.mouseflow.com/projects/e6cf09df-e81a-4320-a61b-99e21f8aac5b.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2145380016388615');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { content_name: '1:1 Personal Brand Coaching' });
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2145380016388615&ev=PageView&noscript=1" /></noscript>
+</head>
+<body>
+
+<div class="container">
+
+  <main>
+    <div class="hero">
+      <h1>Build your personal brand with me, 1:1.</h1>
+    </div>
+
+    <picture>
+      <source srcset="/me.webp" type="image/webp">
+      <img class="hero-photo" src="/me.jpg" alt="Matt Graham" width="904" height="1266">
+    </picture>
+
+    <div class="hero hero-after-vsl">
+      <p class="lead lead-big">
+        <strong>3 months</strong> of weekly 1:1 calls with me. We build your positioning, your content, and your plan to make money from it, together.
+      </p>
+      <a href="#apply" class="hero-cta">Apply Now <span class="arrow">&rarr;</span></a>
+
+      <div class="stats-row">
+        <div><div class="num">1.5B+</div><div class="lbl">Views generated</div></div>
+        <div><div class="num">4.5M+</div><div class="lbl">Followers built</div></div>
+        <div><div class="num">12+</div><div class="lbl">Accounts grown to 10K</div></div>
+      </div>
+    </div>
+
+    <div class="viral-proof">
+      <div class="viral-proof-title">Built from <strong>1.5 billion real views</strong> and <strong>12+ accounts</strong> grown to 10K</div>
+      <div class="viral-marquee" aria-label="Viral video highlights">
+      <div class="viral-track">
+      <img class="viral-card" src="/playbook/img/viral-01.webp" alt="Viral video screenshot 1" />
+      <img class="viral-card" src="/playbook/img/viral-02.webp" alt="Viral video screenshot 2" />
+      <img class="viral-card" src="/playbook/img/viral-03.webp" alt="Viral video screenshot 3" />
+      <img class="viral-card" src="/playbook/img/viral-04.webp" alt="Viral video screenshot 4" />
+      <img class="viral-card" src="/playbook/img/viral-05.webp" alt="Viral video screenshot 5" />
+      <img class="viral-card" src="/playbook/img/viral-06.webp" alt="Viral video screenshot 6" />
+      <img class="viral-card" src="/playbook/img/viral-07.webp" alt="Viral video screenshot 7" />
+      <img class="viral-card" src="/playbook/img/viral-08.webp" alt="Viral video screenshot 8" />
+      <img class="viral-card" src="/playbook/img/viral-09.webp" alt="Viral video screenshot 9" />
+      <img class="viral-card" src="/playbook/img/viral-10.webp" alt="Viral video screenshot 10" />
+      <img class="viral-card" src="/playbook/img/viral-11.webp" alt="Viral video screenshot 11" />
+      <img class="viral-card" src="/playbook/img/viral-12.webp" alt="Viral video screenshot 12" />
+      <img class="viral-card" src="/playbook/img/viral-01.webp" alt="Viral video screenshot 1" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-02.webp" alt="Viral video screenshot 2" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-03.webp" alt="Viral video screenshot 3" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-04.webp" alt="Viral video screenshot 4" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-05.webp" alt="Viral video screenshot 5" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-06.webp" alt="Viral video screenshot 6" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-07.webp" alt="Viral video screenshot 7" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-08.webp" alt="Viral video screenshot 8" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-09.webp" alt="Viral video screenshot 9" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-10.webp" alt="Viral video screenshot 10" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-11.webp" alt="Viral video screenshot 11" aria-hidden="true" />
+      <img class="viral-card" src="/playbook/img/viral-12.webp" alt="Viral video screenshot 12" aria-hidden="true" />
+      </div>
+    </div>
+    </div>
+
+    <!-- ── RESULTS ── -->
+    <div class="before-clip">
+      <div class="before-clip-title">When you follow the system...</div>
+      <div class="results">
+        <div class="result"><div class="num">0 &rarr; 11K</div><div class="who">Joe</div><p>Zero to 11,000 followers in 1 month</p></div>
+        <div class="result"><div class="num">28K</div><div class="who">Hailey Ky</div><p>28,000 followers in 6 weeks</p></div>
+      </div>
+      <div class="before-clip-caption">It's not a gift... it's a SKILL</div>
+    </div>
+
+    <!-- ── WHAT YOU GET ── -->
+    <section>
+      <div class="section-label">What you get</div>
+      <div class="rules-list">
+        <div class="rule"><div class="rule-num">01</div><div><div class="rule-name">Weekly 1:1 Calls</div><div class="rule-desc">Four calls a month for 3 months, just you and me. We look at what you posted, what the numbers say, and what to do next.</div></div></div>
+        <div class="rule"><div class="rule-num">02</div><div><div class="rule-name">Direct Access Between Calls</div><div class="rule-desc">Send me a hook, a script, or a video before it goes up. You're not stuck waiting a week for an answer.</div></div></div>
+        <div class="rule"><div class="rule-num">03</div><div><div class="rule-name">Your Positioning</div><div class="rule-desc">Who you're for, the adjacent interests your audience already cares about, and a profile that turns visits into follows.</div></div></div>
+        <div class="rule"><div class="rule-num">04</div><div><div class="rule-name">Your Content System</div><div class="rule-desc">A setlist you rotate every week, hooks that stop the scroll, and a daily workflow you can actually keep up.</div></div></div>
+        <div class="rule"><div class="rule-num">05</div><div><div class="rule-name">Your Plan to Make Money</div><div class="rule-desc">How your audience turns into income, whether that's brand deals, clients, or your own products.</div></div></div>
+      </div>
+    </section>
+
+    <!-- ── THE COMMITMENT ── -->
+    <section>
+      <div class="section-label">The commitment</div>
+      <div class="guarantee">
+        <div class="commit-price">$3,000</div>
+        <div>
+          <div class="guarantee-headline">3 months. Paid up front.</div>
+          <p>
+            A personal brand isn't built on one call. It takes reps, and 3 months is enough time to build the system, post through the hard part, and see real numbers. I do every call myself, so I only take on people who are <strong>ready to show up and post</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── APPLY ── -->
+    <section id="apply" class="buy-section">
+      <h2>Apply for 1:1 coaching.</h2>
+      <p class="lead">
+        Takes two minutes. I read every application myself, and if it's a fit, I'll reach out by email.
+      </p>
+      <div class="buy-card wide">
+        <form class="apply-form" id="apply-form" novalidate>
+          <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="f-handle">Your main account (handle or link)</label><input id="f-handle" name="handle" type="text" placeholder="@yourhandle" required></div>
+          <div><label for="f-followers">Current followers</label>
+            <select id="f-followers" name="followers" required>
+              <option value="">Choose one</option>
+              <option>Starting from zero</option>
+              <option>Under 1,000</option>
+              <option>1,000 to 10,000</option>
+              <option>10,000 to 100,000</option>
+              <option>100,000+</option>
+            </select>
+          </div>
+          <div><label for="f-goal">What do you want your personal brand to do for you?</label><textarea id="f-goal" name="goal" required></textarea></div>
+          <div>
+            <label>Coaching is a 3-month commitment at $3,000, paid up front. Are you ready to invest that?</label>
+            <div class="radio-row">
+              <label><input type="radio" name="commitment" value="Yes, I'm ready to commit"> Yes, I'm ready to commit</label>
+              <label><input type="radio" name="commitment" value="Not yet"> Not yet</label>
+            </div>
+          </div>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form-err" id="form-err" role="alert"></p>
+          <button class="hero-cta" type="submit" id="apply-btn">Apply <span class="arrow">&rarr;</span></button>
+        </form>
+        <div class="apply-done" id="apply-done" hidden>
+          <div class="guarantee-mark">&#10003;</div>
+          <div class="guarantee-headline">Application received.</div>
+          <p class="buy-footnote">I'll read it myself. If it's a fit, you'll hear from me by email.</p>
+        </div>
+        <div class="buy-footnote" id="apply-note">Questions? Email <a href="mailto:management@notmattgraham.com" style="text-decoration:underline">management@notmattgraham.com</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-meta">
+      &copy; 2026 Matt Graham<br>
+      <a href="mailto:management@notmattgraham.com">management@notmattgraham.com</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    // Applications are emailed to management@notmattgraham.com through FormSubmit
+    // (free, no account). The first submission triggers a one-time activation email.
+    var ENDPOINT = 'https://formsubmit.co/ajax/management@notmattgraham.com';
+    var form = document.getElementById('apply-form');
+    var err = document.getElementById('form-err');
+    var btn = document.getElementById('apply-btn');
+
+    function fail(el, msg) { el.setAttribute('aria-invalid', 'true'); err.textContent = msg; el.focus(); }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      err.textContent = '';
+      form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      var f = form.elements;
+      if (!f.name.value.trim()) return fail(f.name, 'Add your name.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) return fail(f.email, 'That email doesn\'t look right.');
+      if (!f.handle.value.trim()) return fail(f.handle, 'Add your handle so I can look at your account.');
+      if (!f.followers.value) return fail(f.followers, 'Pick your current follower count.');
+      if (!f.goal.value.trim()) return fail(f.goal, 'Tell me what you want your brand to do for you.');
+      var commit = form.querySelector('input[name="commitment"]:checked');
+      if (!commit) { err.textContent = 'Answer the commitment question.'; return; }
+      if (f._honey.value) return;
+
+      btn.disabled = true;
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Coaching application: ' + f.name.value.trim(),
+          _template: 'table',
+          _replyto: f.email.value.trim(),
+          Name: f.name.value.trim(),
+          Email: f.email.value.trim(),
+          Account: f.handle.value.trim(),
+          Followers: f.followers.value,
+          Goal: f.goal.value.trim(),
+          'Ready for 3 months at $3,000 up front': commit.value
+        })
+      })
+        .then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { ok: res.ok, j: j }; }); })
+        .then(function (r) {
+          if (!r.ok || String(r.j.success) === 'false') throw new Error(r.j.message || 'failed');
+          if (window.fbq) fbq('track', 'Lead', { content_name: '1:1 Coaching application' });
+          form.hidden = true;
+          document.getElementById('apply-note').hidden = true;
+          document.getElementById('apply-done').hidden = false;
+        })
+        .catch(function () {
+          btn.disabled = false;
+          err.textContent = 'Something went wrong sending that. Try again, or email management@notmattgraham.com.';
+        });
+    });
+  })();
+
+  // Viral carousel: don't start the scroll animation until every image in the
+  // track has actually decoded. Starting it immediately (before ~34 inlined
+  // images finish decoding on slower phones) lets the track's real width
+  // change out from under a running % -based transform — the animation then
+  // drifts, stutters, and can end up translated fully past the visible mask,
+  // which looks like the whole carousel "disappearing."
+  (function () {
+    var tracks = document.querySelectorAll('.viral-track');
+    tracks.forEach(function (track) {
+      var imgs = Array.prototype.slice.call(track.querySelectorAll('img'));
+      var settled = false;
+      function start() {
+        if (settled) return;
+        settled = true;
+        track.classList.add('play');
+      }
+      var decodePromises = imgs.map(function (img) {
+        if (img.decode) {
+          return img.decode().catch(function () {});
+        }
+        if (img.complete) return Promise.resolve();
+        return new Promise(function (resolve) {
+          img.addEventListener('load', resolve, { once: true });
+          img.addEventListener('error', resolve, { once: true });
+        });
+      });
+      Promise.all(decodePromises).then(start);
+      // Safety net: never leave it frozen if decode() hangs on some device.
+      setTimeout(start, 1500);
+    });
+  })();
+</script>
+</body>
+</html>
